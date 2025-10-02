@@ -1,0 +1,135 @@
+---
+type Props = {
+    border?: "vertical" | "horizontal" | "all" | "none";
+    size?: "sm" | "lg";
+    active?: boolean;
+    class?: string;
+    disableHover?: boolean;
+};
+
+const {
+    border = "all",
+    size = "lg",
+    active,
+    disableHover,
+    class: className,
+    ...props
+} = Astro.props;
+---
+
+<div
+    {...props}
+    class:list={[
+        "surface",
+        size,
+        border,
+        { all: active, "disable-hover": disableHover },
+        className,
+    ]}
+>
+    <slot />
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+</div>
+
+<style>
+    :root {
+        --surface-border-width: 2px;
+        --surface-corner-border-width: 5px;
+        --surface-border-offset: calc(
+            round(up, calc(var(--surface-corner-border-width) / 2), 1px) * -1
+        );
+        --surface-border-color: white;
+        --surface-corner-size: 12px;
+        --surface-corner-size-hover: 24px;
+    }
+
+    .surface {
+        padding: 8px;
+        position: relative;
+        z-index: 1;
+        border: var(--surface-border-width) solid var(--surface-border-color);
+    }
+
+    .surface:not(.disable-hover):hover {
+        --surface-border-color: #bbb;
+    }
+
+    .sm {
+        --surface-corner-size: 8px;
+        --surface-corner-size-hover: 12px;
+        --surface-corner-border-width: 3px;
+    }
+
+    .horizontal {
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+    }
+
+    .vertical {
+        border-left-color: transparent;
+        border-right-color: transparent;
+    }
+
+    .none:not(.all) {
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
+    }
+
+    .corner {
+        box-sizing: border-box;
+        border-style: solid;
+
+        position: absolute;
+        width: var(--surface-corner-size);
+        height: var(--surface-corner-size);
+
+        border-width: var(--surface-corner-border-width);
+        border-color: var(--surface-border-color);
+        z-index: 10;
+
+        transition: all 0.25s;
+    }
+
+    .surface:hover > .corner {
+        width: var(--surface-corner-size-hover);
+        height: var(--surface-corner-size-hover);
+        border-radius: 2px;
+    }
+
+    .corner.tl {
+        top: var(--surface-border-offset);
+        left: var(--surface-border-offset);
+
+        border-bottom-width: 0px;
+        border-right-width: 0px;
+    }
+
+    .corner.tr {
+        top: var(--surface-border-offset);
+        right: var(--surface-border-offset);
+
+        border-bottom-width: 0px;
+        border-left-width: 0px;
+    }
+
+    .corner.bl {
+        bottom: var(--surface-border-offset);
+        left: var(--surface-border-offset);
+
+        border-top-width: 0px;
+        border-right-width: 0px;
+    }
+
+    .corner.br {
+        bottom: var(--surface-border-offset);
+        right: var(--surface-border-offset);
+
+        border-top-width: 0px;
+        border-left-width: 0px;
+    }
+</style>
