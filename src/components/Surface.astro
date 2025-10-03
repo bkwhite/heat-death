@@ -36,25 +36,24 @@ const {
 
 <style>
     :root {
-        --surface-border-width: 2px;
-        --surface-corner-border-width: 5px;
+        --surface-border-width: 1px;
+        --surface-corner-border-width: 6px;
         --surface-border-offset: calc(
-            round(up, calc(var(--surface-corner-border-width) / 2), 1px) * -1
+            round(up, calc(var(--surface-corner-border-width) / 2), 1px) * 1
         );
         --surface-border-color: white;
-        --surface-corner-size: 12px;
+        --surface-corner-size: 16px;
         --surface-corner-size-hover: 24px;
     }
 
     .surface {
-        padding: 8px;
         position: relative;
         z-index: 1;
         border: var(--surface-border-width) solid var(--surface-border-color);
     }
 
     .surface:not(.disable-hover):hover {
-        --surface-border-color: #bbb;
+        --surface-border-color: #999;
     }
 
     .sm {
@@ -81,7 +80,6 @@ const {
     }
 
     .corner {
-        box-sizing: border-box;
         border-style: solid;
 
         position: absolute;

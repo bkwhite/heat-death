@@ -1,0 +1,42 @@
+---
+import Layout from "../Layout.astro";
+
+type TitleSlideType = {
+    title: string;
+};
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout>
+    <div class="title-slide">
+        <h1>{frontmatter.title.toUpperCase()}</h1>
+        <h2>{frontmatter.subtitle}</h2>
+    </div>
+</Layout>
+
+<style>
+    .title-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        height: 100%;
+        padding: 32px;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        font-size: 6rem;
+    }
+
+    h2 {
+        font-size: 2em;
+        align-self: flex-end;
+    }
+
+    * {
+        margin: 0;
+    }
+</style>

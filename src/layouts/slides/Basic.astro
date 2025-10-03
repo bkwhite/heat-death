@@ -1,0 +1,41 @@
+---
+import Layout from "../Layout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout>
+    <div class="basic-slide">
+        <div class="basic-slide-content">
+            <h1>{frontmatter.title.toUpperCase()}</h1>
+            <slot />
+        </div>
+    </div>
+</Layout>
+
+<style is:global>
+    .basic-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        height: 100%;
+        padding: 64px;
+        box-sizing: border-box;
+    }
+
+    .basic-slide-content {
+        * {
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        li {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+</style>

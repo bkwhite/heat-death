@@ -1,0 +1,30 @@
+---
+//import TitleSlide from "./slide-layouts/TitleSlide.astro";
+import Surface from "./Surface.astro";
+
+export type SlideType = {
+    slideLayout: "title";
+    title: string;
+};
+
+type Props = {
+    slide: SlideType;
+};
+
+const { slide } = Astro.props;
+
+console.log(slide);
+---
+
+<Surface class="slide"> hello </Surface>
+
+<style>
+    .slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+</style>

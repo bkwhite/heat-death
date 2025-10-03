@@ -1,0 +1,63 @@
+---
+import Starfield from "@components/Starfield.astro";
+import Surface from "@components/Surface.astro";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro Basics</title>
+    </head>
+    <body>
+        <Starfield />
+        <main>
+            <div class="slide-show">
+                <slot />
+            </div>
+        </main>
+    </body>
+</html>
+
+<style>
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+        font-family:
+            Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+            sans-serif;
+
+        font-size: 24px;
+        box-sizing: border-box;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .slide-show {
+        z-index: 1;
+        /* background-color: rgba(0, 0, 0, 0.5); */
+        max-width: 90vw;
+        max-height: 90vh;
+        aspect-ratio: 16 / 9; /* Standard presentation ratio */
+        overflow: hidden;
+
+        height: 100%;
+        width: 100%;
+
+        border: 1px dashed #ffffff44;
+    }
+</style>
