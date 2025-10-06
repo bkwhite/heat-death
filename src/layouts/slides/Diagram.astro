@@ -6,10 +6,9 @@ const { frontmatter } = Astro.props;
 
 <Layout>
     <div class="basic-slide">
-        <div class="basic-slide-content">
-            <h1>{frontmatter.title.toUpperCase()}</h1>
-            <slot />
-        </div>
+        <h1>{frontmatter.title.toUpperCase()}</h1>
+        <div id="mermaid-diagram"></div>
+        <slot />
     </div>
 </Layout>
 
@@ -17,25 +16,65 @@ const { frontmatter } = Astro.props;
     .basic-slide {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        justify-content: center;
+        gap: 16px;
 
         height: 100%;
-        padding: 64px;
+        padding: 32px;
         box-sizing: border-box;
-    }
 
-    .basic-slide-content {
         * {
             margin: 0;
         }
+    }
 
-        h1 {
-            font-size: 2.5rem;
-        }
+    h1 {
+        align-self: center;
+        font-size: 5rem;
+    }
 
-        li {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
+    li {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    #mermaid-diagram {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 </style>
+
+<script>
+    // @ts-ignore
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+    mermaid.initialize({ startOnLoad: false, theme: "dark" });
+
+    const diagram = `
+      flowchart LR
+           A[Astro] e1@--> B1([Markdown])
+           A e2@--> B2([Components])
+           A e3@--> B3([Styles])
+           B1 e4@--> C[Git]
+           B2 e5@--> C
+           B3 e6@--> C
+           C e7@--> D[CI/CD]
+           D e8@--> E[Static Host]
+           e1@{ animate: true }
+           e2@{ animate: true }
+           e3@{ animate: true }
+           e4@{ animate: fast }
+           e5@{ animate: fast }
+           e6@{ animate: fast }
+           e7@{ animate: fast }
+           e8@{ animate: fast }
+  `;
+
+    mermaid.render("diagram", diagram).then(({ svg }: any) => {
+        const mermaidContainer = document.getElementById("mermaid-diagram");
+        if (mermaidContainer) {
+            mermaidContainer.innerHTML = svg;
+        }
+    });
+</script>

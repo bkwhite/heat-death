@@ -12,6 +12,7 @@ const { frontmatter } = Astro.props;
     <div class="title-slide">
         <h1>{frontmatter.title.toUpperCase()}</h1>
         <h2>{frontmatter.subtitle}</h2>
+        <slot />
     </div>
 </Layout>
 
@@ -29,6 +30,31 @@ const { frontmatter } = Astro.props;
 
     h1 {
         font-size: 6rem;
+        line-height: 1;
+        animation: float 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px); /* Starting position */
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #f00,
+                0 0 20px #f00;
+        }
+        50% {
+            transform: translateY(-20px); /* Mid-point of the float */
+        }
+        100% {
+            transform: translateY(0px); /* Ending position (back to start) */
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #f00,
+                0 0 20px #f00,
+                0 0 25px #f00;
+        }
     }
 
     h2 {

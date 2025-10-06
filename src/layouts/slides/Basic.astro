@@ -1,15 +1,24 @@
 ---
-import Layout from "../Layout.astro";
+import { Image } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
 <Layout>
     <div class="basic-slide">
-        <div class="basic-slide-content">
-            <h1>{frontmatter.title.toUpperCase()}</h1>
-            <slot />
-        </div>
+        <h1>{frontmatter.title.toUpperCase()}</h1>
+        <slot />
+        {
+            frontmatter.image ? (
+                <Image
+                    src={frontmatter.image}
+                    alt={frontmatter.imageAlt}
+                    width={300}
+                    height={300}
+                />
+            ) : null
+        }
     </div>
 </Layout>
 
@@ -18,13 +27,13 @@ const { frontmatter } = Astro.props;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        gap: 32px;
 
         height: 100%;
-        padding: 64px;
+        max-width: 80%;
+        padding: 48px;
         box-sizing: border-box;
-    }
 
-    .basic-slide-content {
         * {
             margin: 0;
         }
@@ -35,7 +44,12 @@ const { frontmatter } = Astro.props;
 
         li {
             font-size: 1.5rem;
-            margin-bottom: 0.75rem;
+        }
+
+        img {
+            position: absolute;
+            bottom: 32px;
+            right: 32px;
         }
     }
 </style>

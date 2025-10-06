@@ -1,5 +1,8 @@
 ---
+import "@fontsource/saira";
+
 import Starfield from "@components/Starfield.astro";
+import Surface from "@components/Surface.astro";
 ---
 
 <!doctype html>
@@ -13,16 +16,17 @@ import Starfield from "@components/Starfield.astro";
     </head>
     <body>
         <Starfield />
+
         <main>
-            <div class="slide-show">
+            <Surface class="slide-show">
                 <slot />
                 <input type="hidden" name="slide-index" value={0} />
-            </div>
+            </Surface>
         </main>
     </body>
 </html>
 
-<style>
+<style is:global>
     html,
     body {
         margin: 0;
@@ -30,12 +34,19 @@ import Starfield from "@components/Starfield.astro";
         height: 100%;
         background-color: black;
         color: white;
-        font-family:
-            Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
-            sans-serif;
+        font-family: "Saira", sans-serif;
 
         font-size: 24px;
         box-sizing: border-box;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        line-height: 1;
     }
 
     main {
@@ -57,8 +68,13 @@ import Starfield from "@components/Starfield.astro";
 
         height: 100%;
         width: 100%;
-
         border: 1px dashed #ffffff44;
+        position: relative;
+    }
+
+    a {
+        color: inherit;
+        letter-spacing: 8px;
     }
 </style>
 
@@ -71,7 +87,11 @@ import Starfield from "@components/Starfield.astro";
         "astro",
         "why",
         "more-why",
+        "what",
         "how",
+        "demo",
+        "q&a",
+        "thanks",
     ];
 
     const slideSlug = url.split("/")[4];

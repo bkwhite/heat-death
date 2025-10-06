@@ -43,13 +43,30 @@ const {
         );
         --surface-border-color: white;
         --surface-corner-size: 16px;
-        --surface-corner-size-hover: 24px;
+        --surface-corner-size-hover: 32px;
     }
 
     .surface {
         position: relative;
         z-index: 1;
         border: var(--surface-border-width) solid var(--surface-border-color);
+        animation: open-anim 1s ease-in;
+    }
+
+    @keyframes open-anim {
+        0% {
+            opacity: 0;
+            height: 0px;
+        }
+
+        40% {
+            width: 100%;
+        }
+
+        100% {
+            opacity: 1;
+            height: 100%;
+        }
     }
 
     .surface:not(.disable-hover):hover {
@@ -90,13 +107,19 @@ const {
         border-color: var(--surface-border-color);
         z-index: 10;
 
-        transition: all 0.25s;
+        animation: corner-anim 2s ease-in-out infinite alternate;
     }
 
-    .surface:hover > .corner {
-        width: var(--surface-corner-size-hover);
-        height: var(--surface-corner-size-hover);
-        border-radius: 2px;
+    @keyframes corner-anim {
+        0% {
+            border-radius: 0px;
+        }
+
+        100% {
+            width: var(--surface-corner-size-hover);
+            height: var(--surface-corner-size-hover);
+            border-radius: 2px;
+        }
     }
 
     .corner.tl {

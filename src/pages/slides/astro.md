@@ -1,8 +1,10 @@
 ---
 layout: '@layouts/slides/Basic.astro'
 title: 'What is astro'
+image: '/astro.png'
+imageAlt: 'astro logo'
 ---
-- [Astro](https://astro.build/) is a barebones JavaScript framework designed for building content driven websites
-- Components are built using `.astro` files
-- Framework agnostic (You can use any components from other frameworks using `Islands🏝️`)
-- And so much more...
+- [astro](https://astro.build/) is a barebones JavaScript framework designed for building content driven websites
+- components are built using `.astro` files
+- framework agnostic components (components from other frameworks can be used via `Islands🏝️`)
+- and so much more...

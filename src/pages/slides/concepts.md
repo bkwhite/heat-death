@@ -2,11 +2,12 @@
 layout: '@layouts/slides/Basic.astro'
 title: 'Concepts covered in this talk'
 ---
-- [Astro](https://astro.build/)
-- Markdown
-  - Basic markup language used for authoring text documents
-- Git
-  - The gold standard version control system
+- [astro](https://astro.build/)
+  - a javascript framework
+- markdown
+  - basic markup language used for document authoring
+- git
+  - the gold standard version control system
 - CI / CD
-  - "Continuous Integration and Continuous Delivery"
-  - Deployments happen when we push code with git
+  - "continuous integration and continuous delivery"
+  - deployments happen when we push code with git
