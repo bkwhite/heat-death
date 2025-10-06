@@ -1,6 +1,5 @@
 ---
 import Starfield from "@components/Starfield.astro";
-import Surface from "@components/Surface.astro";
 ---
 
 <!doctype html>
@@ -17,6 +16,7 @@ import Surface from "@components/Surface.astro";
         <main>
             <div class="slide-show">
                 <slot />
+                <input type="hidden" name="slide-index" value={0} />
             </div>
         </main>
     </body>
@@ -49,7 +49,7 @@ import Surface from "@components/Surface.astro";
 
     .slide-show {
         z-index: 1;
-        /* background-color: rgba(0, 0, 0, 0.5); */
+        background-color: rgba(0, 0, 0, 0.5);
         max-width: 90vw;
         max-height: 90vh;
         aspect-ratio: 16 / 9; /* Standard presentation ratio */
@@ -61,3 +61,45 @@ import Surface from "@components/Surface.astro";
         border: 1px dashed #ffffff44;
     }
 </style>
+
+<script>
+    const url = window.location.href;
+    const slideOrder = [
+        "title",
+        "about-me",
+        "concepts",
+        "astro",
+        "why",
+        "more-why",
+        "how",
+    ];
+
+    const slideSlug = url.split("/")[4];
+    const currentIndex = slideOrder.indexOf(slideSlug);
+
+    const getNextSlide = () => {
+        if (currentIndex + 1 <= slideOrder.length - 1) {
+            return slideOrder[currentIndex + 1];
+        }
+    };
+
+    const getPrevSlide = () => {
+        if (currentIndex - 1 >= 0) {
+            return slideOrder[currentIndex - 1];
+        }
+    };
+
+    document.addEventListener("keyup", function (event) {
+        if (event.key === "n") {
+            event.preventDefault();
+            if (getNextSlide()) {
+                window.location.href = `/slides/${getNextSlide()}`;
+            }
+        } else if (event.key === "p") {
+            event.preventDefault();
+            if (getPrevSlide()) {
+                window.location.href = `/slides/${getPrevSlide()}`;
+            }
+        }
+    });
+</script>
