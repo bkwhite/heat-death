@@ -1,6 +1,8 @@
 ---
 layout: '@layouts/slides/Basic.astro'
 title: 'what is this suited for'
+image: '/space-3.jpg'
+imageAlt: 'space image from NASA'
 ---
 - ideal for
   - blogs

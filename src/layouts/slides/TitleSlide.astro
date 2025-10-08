@@ -1,17 +1,13 @@
 ---
 import Layout from "../Layout.astro";
 
-type TitleSlideType = {
-    title: string;
-};
-
 const { frontmatter } = Astro.props;
 ---
 
 <Layout>
     <div class="title-slide">
         <h1>{frontmatter.title.toUpperCase()}</h1>
-        <h2>{frontmatter.subtitle}</h2>
+        <h2>{frontmatter.subtitle.toUpperCase()}</h2>
         <slot />
     </div>
 </Layout>
@@ -24,14 +20,14 @@ const { frontmatter } = Astro.props;
         justify-content: space-between;
 
         height: 100%;
-        padding: 32px;
+        padding: 64px;
         box-sizing: border-box;
     }
 
     h1 {
-        font-size: 6rem;
+        font-size: 8rem;
         line-height: 1;
-        animation: float 10s ease-in-out infinite alternate;
+        animation: float 10s ease-in-out 2s infinite alternate;
     }
 
     @keyframes float {
@@ -58,7 +54,7 @@ const { frontmatter } = Astro.props;
     }
 
     h2 {
-        font-size: 2em;
+        font-size: 3em;
         align-self: flex-end;
     }
 

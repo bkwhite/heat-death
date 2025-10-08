@@ -1,6 +1,8 @@
 ---
 layout: '@layouts/slides/Basic.astro'
 title: 'Concepts covered in this talk'
+image: '/space-4.jpg'
+imageAlt: 'space image from NASA'
 ---
 - [astro](https://astro.build/)
   - a javascript framework

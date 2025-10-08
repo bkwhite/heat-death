@@ -53,20 +53,16 @@ const { frontmatter } = Astro.props;
 
     const diagram = `
       flowchart LR
-           A[Astro] e1@--> B1([Markdown])
-           A e2@--> B2([Components])
-           A e3@--> B3([Styles])
-           B1 e4@--> C[Git]
-           B2 e5@--> C
-           B3 e6@--> C
+           B1[Markdown] e2@-->  A
+           B2[Components] e3@--> A
+           B3[Styles] e4@--> A
+           A[Astro] e1@--> C[Git]
            C e7@--> D[CI/CD]
            D e8@--> E[Static Host]
            e1@{ animate: true }
            e2@{ animate: true }
            e3@{ animate: true }
            e4@{ animate: fast }
-           e5@{ animate: fast }
-           e6@{ animate: fast }
            e7@{ animate: fast }
            e8@{ animate: fast }
   `;

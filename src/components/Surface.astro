@@ -50,13 +50,14 @@ const {
         position: relative;
         z-index: 1;
         border: var(--surface-border-width) solid var(--surface-border-color);
-        animation: open-anim 1s ease-in;
+        animation: open-anim 1s ease-in 0.5s forwards;
+        height: 32px;
     }
 
     @keyframes open-anim {
         0% {
-            opacity: 0;
-            height: 0px;
+            opacity: 0.5;
+            height: 32px;
         }
 
         40% {

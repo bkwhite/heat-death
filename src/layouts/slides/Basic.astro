@@ -14,8 +14,8 @@ const { frontmatter } = Astro.props;
                 <Image
                     src={frontmatter.image}
                     alt={frontmatter.imageAlt}
-                    width={300}
-                    height={300}
+                    width={290}
+                    height={290}
                 />
             ) : null
         }
@@ -50,6 +50,7 @@ const { frontmatter } = Astro.props;
             position: absolute;
             bottom: 32px;
             right: 32px;
+            opacity: 0.8;
         }
     }
 </style>
