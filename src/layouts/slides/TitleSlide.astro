@@ -1,5 +1,5 @@
 ---
-import Layout from "../Layout.astro";
+import Layout from "@layouts/Layout.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -22,12 +22,25 @@ const { frontmatter } = Astro.props;
         height: 100%;
         padding: 64px;
         box-sizing: border-box;
-    }
 
-    h1 {
-        font-size: 8rem;
-        line-height: 1;
-        animation: float 10s ease-in-out 2s infinite alternate;
+        h1 {
+            font-size: 8rem;
+            line-height: 1;
+            animation: float 10s ease-in-out 2s infinite alternate;
+        }
+
+        h2 {
+            font-size: 3em;
+            align-self: flex-end;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            margin: 0;
+        }
     }
 
     @keyframes float {
@@ -51,14 +64,5 @@ const { frontmatter } = Astro.props;
                 0 0 20px #f00,
                 0 0 25px #f00;
         }
-    }
-
-    h2 {
-        font-size: 3em;
-        align-self: flex-end;
-    }
-
-    * {
-        margin: 0;
     }
 </style>

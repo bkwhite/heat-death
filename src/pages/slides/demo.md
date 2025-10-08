@@ -10,4 +10,4 @@ it was Astro the whole time...🚀 (the slideshow)
 - this slideshow
 - my website
 - my blog
-- vercel / gh pages
+- vercel deployment

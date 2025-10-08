@@ -51,13 +51,14 @@ const {
         z-index: 1;
         border: var(--surface-border-width) solid var(--surface-border-color);
         animation: open-anim 1s ease-in 0.5s forwards;
-        height: 32px;
+        height: 64px;
+        opacity: 0;
     }
 
     @keyframes open-anim {
         0% {
-            opacity: 0.5;
-            height: 32px;
+            opacity: 0;
+            height: 64px;
         }
 
         40% {
@@ -67,6 +68,24 @@ const {
         100% {
             opacity: 1;
             height: 100%;
+        }
+    }
+
+    .reverse {
+        animation: close-anim 0.5s ease-out forwards;
+    }
+
+    @keyframes close-anim {
+        0% {
+            opacity: 1;
+            height: 100%;
+        }
+        60% {
+            width: 100%;
+        }
+        100% {
+            opacity: 0;
+            height: 64px;
         }
     }
 

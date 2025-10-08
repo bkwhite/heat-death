@@ -6,9 +6,12 @@ imageAlt: 'space image from NASA'
 ---
 - ideal for
   - blogs
+  - documentation / wikis
   - resumes
   - tutorial write ups
   - event listings / calendars
+
+---
 
 - not ideal for
   - dynamic / interactive content

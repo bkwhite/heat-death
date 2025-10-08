@@ -40,10 +40,16 @@ const { frontmatter } = Astro.props;
 
         h1 {
             font-size: 2.5rem;
+            letter-spacing: 0.3rem;
+            text-shadow:
+                0 0 2px #fff,
+                0 0 3px #fff,
+                0 0 4px #f00,
+                0 0 5px #f00;
         }
 
         li {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
 
         img {
@@ -51,6 +57,36 @@ const { frontmatter } = Astro.props;
             bottom: 32px;
             right: 32px;
             opacity: 0.8;
+            animation: float 10s ease-in-out infinite alternate;
+        }
+
+        pre {
+            width: 50%;
+            padding: 16px;
+            font-size: 0.6rem;
+        }
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px); /* Starting position */
+            box-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #f00,
+                0 0 20px #f00;
+        }
+        50% {
+            transform: translateY(-20px); /* Mid-point of the float */
+        }
+        100% {
+            transform: translateY(0px); /* Ending position (back to start) */
+            box-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #f00,
+                0 0 20px #f00,
+                0 0 25px #f00;
         }
     }
 </style>

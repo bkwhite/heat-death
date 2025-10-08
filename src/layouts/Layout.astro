@@ -12,7 +12,7 @@ import Surface from "@components/Surface.astro";
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>Astro Basics</title>
+        <title>The Heat Death of the CMS</title>
     </head>
     <body>
         <div class="bg"></div>
@@ -139,10 +139,11 @@ import Surface from "@components/Surface.astro";
         "about-me",
         "concepts",
         "astro",
+        "what",
         "why",
         "more-why",
-        "what",
         "how",
+        "questions",
         "demo",
         "q&a",
         "thanks",
@@ -167,13 +168,40 @@ import Surface from "@components/Surface.astro";
         if (event.key === "n") {
             event.preventDefault();
             if (getNextSlide()) {
-                window.location.href = `/slides/${getNextSlide()}`;
+                addExitAnimation();
+                setTimeout(() => {
+                    window.location.href = `/slides/${getNextSlide()}`;
+                }, 1000);
             }
         } else if (event.key === "p") {
             event.preventDefault();
             if (getPrevSlide()) {
-                window.location.href = `/slides/${getPrevSlide()}`;
+                addExitAnimation();
+                setTimeout(() => {
+                    window.location.href = `/slides/${getPrevSlide()}`;
+                }, 1000);
             }
+        } else if (event.key === "f") {
+            goFullscreen();
+        } else if (event.key === "e") {
+            closeFullscreen();
         }
     });
+
+    function addExitAnimation() {
+        document.querySelector(".slide-show")?.classList.add("reverse");
+    }
+
+    function goFullscreen() {
+        const element = document.documentElement;
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        }
+    }
+
+    function closeFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
 </script>

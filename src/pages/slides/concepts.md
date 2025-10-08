@@ -13,3 +13,4 @@ imageAlt: 'space image from NASA'
 - CI / CD
   - "continuous integration and continuous delivery"
   - deployments happen when we push code with git
+- static site generation

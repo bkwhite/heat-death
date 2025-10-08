@@ -5,7 +5,12 @@ image: '/space.jpg'
 imageAlt: 'a hubble picture of space'
 ---
 - website authoring can be streamlined more than ever for `technically inclined individuals`
-- <u>markdown</u> and <u>git</u> are all you need to author a website
+- <u>markdown</u> and <u>git</u> are all you need to author a website in this way
 - static hosting is basically *FREE* at this point given all the current tools on the market
+  - think Vercel, GH pages, etc...
 - ***COMPLETELY CUSTOM FROM THE GROUND UP***
-- THE <u>`[LACK OF]`</u> *SKY IS THE LIMIT*
+
+---
+
+# THE `[LACK OF]` *SKY IS THE LIMIT*
+(because we are in space)
