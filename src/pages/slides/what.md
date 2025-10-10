@@ -14,5 +14,6 @@ imageAlt: 'space image from NASA'
 ---
 
 - not ideal for
+  - single page applications
   - dynamic / interactive content
   - things like content feeds, forms, etc

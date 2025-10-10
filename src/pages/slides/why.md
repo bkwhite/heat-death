@@ -5,9 +5,9 @@ image: '/space.jpg'
 imageAlt: 'a hubble picture of space'
 ---
 - website authoring can be streamlined more than ever for `technically inclined individuals`
-- <u>markdown</u> and <u>git</u> are all you need to author a website in this way
+- <u>markdown</u> and <u>git</u> are all you need to author website content
 - static hosting is basically *FREE* at this point given all the current tools on the market
-  - think Vercel, GH pages, etc...
+  - think Vercel, GitHub pages, etc...
 - ***COMPLETELY CUSTOM FROM THE GROUND UP***
 
 ---

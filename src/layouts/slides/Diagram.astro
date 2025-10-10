@@ -52,19 +52,22 @@ const { frontmatter } = Astro.props;
     mermaid.initialize({ startOnLoad: false, theme: "dark" });
 
     const diagram = `
-      flowchart LR
-           B1[Markdown] e2@-->  A
-           B2[Components] e3@--> A
-           B3[Styles] e4@--> A
-           A[Astro] e1@--> C[Git]
-           C e7@--> D[CI/CD]
-           D e8@--> E[Static Host]
-           e1@{ animate: true }
-           e2@{ animate: true }
-           e3@{ animate: true }
-           e4@{ animate: fast }
-           e7@{ animate: fast }
-           e8@{ animate: fast }
+        flowchart LR
+            subgraph Astro
+            B1[Markdown]
+            B2[Components]
+            B3[Styles]
+            end
+            B1 e2@-->  C
+            B2 e3@--> C
+            B3 e4@--> C
+            C[git] e7@--$ git push--> D[CI/CD build pipeline]
+            D e8@--> E[Static Host]
+            e2@{ animate: true }
+            e3@{ animate: true }
+            e4@{ animate: fast }
+            e7@{ animate: fast }
+            e8@{ animate: fast }
   `;
 
     mermaid.render("diagram", diagram).then(({ svg }: any) => {

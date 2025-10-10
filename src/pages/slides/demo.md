@@ -6,8 +6,17 @@ imageAlt: 'space image from NASA'
 ---
 it was Astro the whole time...🚀 (the slideshow)
 
-## things to demo
+```
+src/
+├── components/      # Reusable components
+├── layouts/         # Page layout and slide layouts
+│   ├── Layout.astro
+│   └── slides/      # Different slide layouts
+└── pages/
+    └── slides/      # Markdown files for each slide
+```
+
 - this slideshow
-- my website
-- my blog
 - vercel deployment
+- resume website
+- blog
